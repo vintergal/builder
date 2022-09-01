@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
 //import AwesomeButton  from '@chuhoanglong/rn-really-awesome-button';
 import AwesomeButtonRick from '@chuhoanglong/rn-really-awesome-button/src/themes/rick';
+import { Chip,useTheme } from 'react-native-paper';
 
 export default function Details({details}) {
     const {name,city,birthYear,lvl,properties,freeText}=details;
     const FONT_SIZE=15;
-    
+    const { colors } = useTheme();
     return(
         <View style={styles.detailsList}>
             <View><Text style={{fontSize:FONT_SIZE}}>שם: {name}</Text></View>
@@ -21,6 +22,9 @@ export default function Details({details}) {
             <View style={{alignSelf:'center'}}>
             <AwesomeButtonRick backgroundColor="#fdd22e" backgroundDarker="#e59d24" borderColor="#000"
              type="anchor" backgroundProgress='#e59d24' width={150} onPress={()=>console.log('f')}>קטגוריות אימון</AwesomeButtonRick>
+            </View>
+            <View style={styles.properties}>
+                {properties.map(val=><Chip style={styles.property}>{val}</Chip>)}
             </View>
             <View><Text style={{fontSize:FONT_SIZE}}>תיאור: {freeText}</Text></View>
             
@@ -46,7 +50,15 @@ export default function Details({details}) {
     },
     weight:{
         marginHorizontal:5,
-    }
+    },
+    properties:{
+        flexDirection:'row', 
+        flexWrap:'wrap', 
+    },
+    property:{
+        margin:5,
+        backgroundColor:'#1ff',
+    },
    });
    //<Image source={require('../../rate.png')} />
    function getWeight(num)
@@ -60,3 +72,5 @@ export default function Details({details}) {
     
     return ddd.map((val,i)=> <Image key={i} style={styles.weight} source={require('../../rate.png')} />);
    }
+
+   
