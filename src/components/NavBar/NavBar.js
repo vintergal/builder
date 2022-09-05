@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         flexDirection:'row',
         justifyContent:'space-evenly',
+        marginBottom:10,
+        borderRadius:20,
         
     
     },

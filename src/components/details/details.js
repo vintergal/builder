@@ -24,7 +24,11 @@ export default function Details({details}) {
              type="anchor" backgroundProgress='#e59d24' width={150} onPress={()=>console.log('f')}>קטגוריות אימון</AwesomeButtonRick>
             </View>
             <View style={styles.properties}>
-                {properties.map(val=><Chip style={styles.property}>{val}</Chip>)}
+                {properties.map((val,i)=>{
+                const selected=i==1;
+                return <Chip key={i} selected={selected} style={selected?styles.selectedProperty:styles.property}>{val}</Chip>
+            })
+        }
             </View>
             <View><Text style={{fontSize:FONT_SIZE}}>תיאור: {freeText}</Text></View>
             
@@ -58,6 +62,10 @@ export default function Details({details}) {
     property:{
         margin:5,
         backgroundColor:'#1ff',
+    },
+    selectedProperty:{
+        margin:5,
+        backgroundColor:'#1f9',
     },
    });
    //<Image source={require('../../rate.png')} />

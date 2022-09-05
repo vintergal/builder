@@ -8,10 +8,12 @@ import { StyleSheet} from 'react-native';
         alignSelf: 'stretch',
         justifyContent: 'flex-start',
         alignItems:'center',
-        borderBottomEndRadius:50,
-        borderBottomStartRadius:50,
+        //borderBottomEndRadius:50,
+        //borderBottomStartRadius:50,
+        borderRadius:40,
         paddingHorizontal:20,
-        
+        marginBottom:20,
+        elevation:20
         }
    });
 
